@@ -60,11 +60,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\ecommercetp1-master\\ecommercetp1-master\\ecommercetp1\\ecommercetp1.csproj",
+      "projectUniqueName": "C:\\Users\\PcGamer\\Documents\\GitHub\\TPcuatri\\ecommercetp1.csproj",
       "projectName": "ecommercetp1",
-      "projectPath": "E:\\ecommercetp1-master\\ecommercetp1-master\\ecommercetp1\\ecommercetp1.csproj",
+      "projectPath": "C:\\Users\\PcGamer\\Documents\\GitHub\\TPcuatri\\ecommercetp1.csproj",
       "packagesPath": "C:\\Users\\PcGamer\\.nuget\\packages\\",
-      "outputPath": "E:\\ecommercetp1-master\\ecommercetp1-master\\ecommercetp1\\obj\\",
+      "outputPath": "C:\\Users\\PcGamer\\Documents\\GitHub\\TPcuatri\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\PcGamer\\AppData\\Roaming\\NuGet\\NuGet.Config",
