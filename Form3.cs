@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace ecommercetp1
 {
-    public partial class Ventas : Form
+    public partial class Form3 : Form
     {
-        public Ventas()
+        public Form3()
         {
             InitializeComponent();
-        }
-
-        private void Ventas_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
