@@ -1,21 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\PcGamer\\Documents\\GitHub\\TPcuatri\\",
+  "WorkspaceRootPath": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (2)\\TPcuatri\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PcGamer\\source\\repos\\TPcuatri\\UsuariosForm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2F617984-9F38-05FF-7BBB-75AD98BAD246}|ecommercetp1.csproj|c:\\users\\pcgamer\\documents\\nueva carpeta (2)\\tpcuatri\\usuariosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2F617984-9F38-05FF-7BBB-75AD98BAD246}|ecommercetp1.csproj|solutionrelative:usuariosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|c:\\users\\pcgamer\\source\\repos\\tpcuatri\\usuariosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|c:\\users\\pcgamer\\source\\repos\\tpcuatri\\formtiendas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|c:\\users\\pcgamer\\source\\repos\\tpcuatri\\formlogistica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|c:\\users\\pcgamer\\source\\repos\\tpcuatri\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2F617984-9F38-05FF-7BBB-75AD98BAD246}|ecommercetp1.csproj|c:\\users\\pcgamer\\documents\\nueva carpeta (2)\\tpcuatri\\usuariosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F617984-9F38-05FF-7BBB-75AD98BAD246}|ecommercetp1.csproj|solutionrelative:usuariosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,68 +22,32 @@
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "UsuariosForm.cs",
-              "DocumentMoniker": "C:\\Users\\PcGamer\\source\\repos\\TPcuatri\\UsuariosForm.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\source\\repos\\TPcuatri\\UsuariosForm.cs",
-              "ToolTip": "C:\\Users\\PcGamer\\source\\repos\\TPcuatri\\UsuariosForm.cs",
-              "RelativeToolTip": "..\\..\\..\\source\\repos\\TPcuatri\\UsuariosForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAATAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (2)\\TPcuatri\\UsuariosForm.cs",
+              "RelativeDocumentMoniker": "UsuariosForm.cs",
+              "ToolTip": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (2)\\TPcuatri\\UsuariosForm.cs",
+              "RelativeToolTip": "UsuariosForm.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAewIIAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-11T22:20:05.396Z",
+              "WhenOpened": "2026-05-11T23:41:34.771Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "UsuariosForm.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\PcGamer\\source\\repos\\TPcuatri\\UsuariosForm.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\source\\repos\\TPcuatri\\UsuariosForm.cs",
-              "ToolTip": "C:\\Users\\PcGamer\\source\\repos\\TPcuatri\\UsuariosForm.cs [Dise\u00F1o]",
-              "RelativeToolTip": "..\\..\\..\\source\\repos\\TPcuatri\\UsuariosForm.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (2)\\TPcuatri\\UsuariosForm.cs",
+              "RelativeDocumentMoniker": "UsuariosForm.cs",
+              "ToolTip": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (2)\\TPcuatri\\UsuariosForm.cs [Dise\u00F1o]",
+              "RelativeToolTip": "UsuariosForm.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-11T22:17:53.322Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FormTiendas.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\PcGamer\\source\\repos\\TPcuatri\\FormTiendas.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\source\\repos\\TPcuatri\\FormTiendas.cs",
-              "ToolTip": "C:\\Users\\PcGamer\\source\\repos\\TPcuatri\\FormTiendas.cs [Dise\u00F1o]",
-              "RelativeToolTip": "..\\..\\..\\source\\repos\\TPcuatri\\FormTiendas.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-11T22:17:50.882Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FormLogistica.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\PcGamer\\source\\repos\\TPcuatri\\FormLogistica.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\source\\repos\\TPcuatri\\FormLogistica.cs",
-              "ToolTip": "C:\\Users\\PcGamer\\source\\repos\\TPcuatri\\FormLogistica.cs [Dise\u00F1o]",
-              "RelativeToolTip": "..\\..\\..\\source\\repos\\TPcuatri\\FormLogistica.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-11T22:17:50.147Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\PcGamer\\source\\repos\\TPcuatri\\Form1.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\source\\repos\\TPcuatri\\Form1.cs",
-              "ToolTip": "C:\\Users\\PcGamer\\source\\repos\\TPcuatri\\Form1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "..\\..\\..\\source\\repos\\TPcuatri\\Form1.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-11T22:17:33.669Z"
+              "WhenOpened": "2026-05-11T23:39:54.096Z",
+              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }

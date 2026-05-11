@@ -1014,11 +1014,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PcGamer\\Documents\\GitHub\\TPcuatri\\ecommercetp1.csproj",
+      "projectUniqueName": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (2)\\TPcuatri\\ecommercetp1.csproj",
       "projectName": "ecommercetp1",
-      "projectPath": "C:\\Users\\PcGamer\\Documents\\GitHub\\TPcuatri\\ecommercetp1.csproj",
+      "projectPath": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (2)\\TPcuatri\\ecommercetp1.csproj",
       "packagesPath": "C:\\Users\\PcGamer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PcGamer\\Documents\\GitHub\\TPcuatri\\obj\\",
+      "outputPath": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (2)\\TPcuatri\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\PcGamer\\AppData\\Roaming\\NuGet\\NuGet.Config",

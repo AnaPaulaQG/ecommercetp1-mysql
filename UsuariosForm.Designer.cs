@@ -137,12 +137,10 @@
             // 
             // cbTiendas
             // 
-            cbTiendas.FormattingEnabled = true;
-            cbTiendas.Location = new Point(85, 135);
+            cbTiendas.Location = new Point(85, 138);
             cbTiendas.Name = "cbTiendas";
             cbTiendas.Size = new Size(100, 23);
-            cbTiendas.TabIndex = 14;
-            cbTiendas.SelectedIndexChanged += cbTiendas_SelectedIndexChanged;
+            cbTiendas.TabIndex = 20;
             // 
             // btnLimpiar
             // 
@@ -166,7 +164,7 @@
             // 
             // Actualizar_SQL
             // 
-            Actualizar_SQL.Location = new Point(303, 48);
+            Actualizar_SQL.Location = new Point(290, 8);
             Actualizar_SQL.Name = "Actualizar_SQL";
             Actualizar_SQL.Size = new Size(75, 23);
             Actualizar_SQL.TabIndex = 17;
