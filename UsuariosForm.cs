@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 
 namespace ecommercetp1
@@ -15,7 +15,7 @@ namespace ecommercetp1
     public partial class UsuariosForm : Form
     {
         int filaSeleccionada = -1;
-        SqlConnection con = new SqlConnection("TU_CONEXION");
+        // SqlConnection con = new SqlConnection("TU_CONEXION");
 
         public UsuariosForm()
         {
@@ -54,14 +54,33 @@ namespace ecommercetp1
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             dgvUsuarios.Rows.Add(
-            txtNombre.Text,
-            txtEmail.Text,
-            txtContraseña.Text,
-            cbTiendas.Text
-    );
+                txtNombre.Text,
+                txtEmail.Text,
+                txtContraseña.Text,
+                cbTiendas.Text
+            );
 
+            // ✅ NUEVO: INSERT en MySQL
+            string query = @"INSERT INTO usuarios (Nombre, Email, Contrasena, Tienda) 
+                     VALUES (@nombre, @email, @contrasena, @tienda)";
+
+            using (var conn = ConexionDB.ObtenerConexion())
+            {
+                conn.Open();
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
+                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
+                    cmd.Parameters.AddWithValue("@contrasena", txtContraseña.Text);
+                    cmd.Parameters.AddWithValue("@tienda", cbTiendas.Text);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            MessageBox.Show("Usuario guardado correctamente.");
             LimpiarCampos();
         }
+
         private void btnModificar_Click(object sender, EventArgs e)
         {
             if (filaSeleccionada >= 0)
@@ -91,34 +110,7 @@ namespace ecommercetp1
 
         private void Actualizar_SQL_Click(object sender, EventArgs e)
         {
-            {
-                {
-                    string conexion = "Server=.;Database=MiBase;Trusted_Connection=True;TrustServerCertificate=True;";
-
-                    using (SqlConnection con = new SqlConnection(conexion))
-                    {
-                        string query = @"INSERT INTO Usuarios 
-                        (Nombre, Email, Contraseña, Tienda) 
-                        VALUES 
-                        (@nombre, @email, @contraseña, @tienda)";
-
-                        using (SqlCommand cmd = new SqlCommand(query, con))
-                        {
-                            cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
-                            cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                            cmd.Parameters.AddWithValue("@contraseña", txtContraseña.Text);
-
-                            // ComboBox o lista de estados
-                            cmd.Parameters.AddWithValue("@tienda", cbTiendas.SelectedItem.ToString());
-
-                            con.Open();
-                            cmd.ExecuteNonQuery();
-                        }
-                    }
-
-                    MessageBox.Show("Usuario guardado correctamente");
-                }
-            }
+            // ya no se usa
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -128,28 +120,7 @@ namespace ecommercetp1
 
         private void Conexion_Click(object sender, EventArgs e)
         {
-            string conexion = "Server=.\\SQLEXPRESS;Database=UsuariosDB;Trusted_Connection=True;TrustServerCertificate=True;";
-
-            using (SqlConnection con = new SqlConnection(conexion))
-            {
-                string query = @"INSERT INTO Usuarios
-                        (Nombre, Email, Contraseña, Tienda)
-                        VALUES
-                        (@nombre, @email, @contraseña, @tienda)";
-
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
-                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@contraseña", txtContraseña.Text);
-                    cmd.Parameters.AddWithValue("@tienda", cbTienda.SelectedItem.ToString());
-
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                }
-            }
-
-            MessageBox.Show("Usuario guardado correctamente");
+            // ya no se usa
         }
     }
 }

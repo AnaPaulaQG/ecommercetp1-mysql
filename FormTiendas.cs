@@ -1,10 +1,11 @@
+using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO; // <--- AGREGAR ESTO
 using System.Linq;
 using System.Windows.Forms;
-using System.IO; // <--- AGREGAR ESTO
-using Newtonsoft.Json;
 
 namespace ecommercetp1
 {
@@ -31,7 +32,7 @@ namespace ecommercetp1
         {
             try
             {
-                // Creamos la tienda
+                // ✅ Código existente, no se toca
                 Tienda nueva = new Tienda
                 {
                     IdTienda = int.Parse(txtIdTienda.Text),
@@ -40,21 +41,33 @@ namespace ecommercetp1
                     Url = txtUrl.Text,
                     Estado = (cmbEstado.Text == "Activo")
                 };
-
-                // Agregamos a la lista global
                 RepositorioCentral.TodasLasTiendas.Add(nueva);
-
-                // Refrescamos visualmente la tabla
                 ActualizarGrid();
-
-                // GUARDAMOS EN EL ARCHIVO JSON (Persistencia)
                 RepositorioCentral.GuardarDatos();
+
+                // ✅ NUEVO: INSERT en MySQL
+                string query = @"INSERT INTO tiendas (IdTienda, IdUsuarioAdm, Nombre, Url, Estado) 
+                         VALUES (@id, @idAdm, @nombre, @url, @estado)";
+
+                using (var conn = ConexionDB.ObtenerConexion())
+                {
+                    conn.Open();
+                    using (var cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", nueva.IdTienda);
+                        cmd.Parameters.AddWithValue("@idAdm", nueva.IdUsuarioAdm);
+                        cmd.Parameters.AddWithValue("@nombre", nueva.Nombre);
+                        cmd.Parameters.AddWithValue("@url", nueva.Url);
+                        cmd.Parameters.AddWithValue("@estado", nueva.Estado ? 1 : 0);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
 
                 MessageBox.Show("Tienda guardada con éxito.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: Verifica que los IDs sean números. " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -85,14 +98,28 @@ namespace ecommercetp1
 
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
+            // ✅ Código existente, se queda igual
             string filtro = txtNombreTienda.Text.ToLower();
-
             var resultado = RepositorioCentral.TodasLasTiendas
                             .Where(t => (t.Nombre ?? "").ToLower().Contains(filtro))
                             .ToList();
-
             dgvTiendas.DataSource = null;
             dgvTiendas.DataSource = resultado;
+
+            // ✅ NUEVO: Consulta en MySQL
+            string query = "SELECT * FROM tiendas WHERE Nombre LIKE @filtro";
+            using (var conn = ConexionDB.ObtenerConexion())
+            {
+                conn.Open();
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@filtro", "%" + txtNombreTienda.Text + "%");
+                    var adapter = new MySqlDataAdapter(cmd);
+                    var tabla = new DataTable();
+                    adapter.Fill(tabla);
+                    dgvTiendas.DataSource = tabla;
+                }
+            }
         }
 
         private void dgvTiendas_CellClick(object sender, DataGridViewCellEventArgs e)

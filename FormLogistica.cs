@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -57,9 +58,28 @@ namespace ecommercetp1
             };
 
             envios.Add(nuevo);
-
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = envios;
+
+            // ✅ NUEVO: INSERT en MySQL
+            string query = @"INSERT INTO envios (ID_Envio, ID_Venta, Direccion, Empresa, EstadoEnvio) 
+                     VALUES (@idEnvio, @idVenta, @direccion, @empresa, @estado)";
+
+            using (var conn = ConexionDB.ObtenerConexion())
+            {
+                conn.Open();
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@idEnvio", nuevo.ID_Envio);
+                    cmd.Parameters.AddWithValue("@idVenta", nuevo.ID_Venta);
+                    cmd.Parameters.AddWithValue("@direccion", nuevo.Direccion);
+                    cmd.Parameters.AddWithValue("@empresa", nuevo.Empresa);
+                    cmd.Parameters.AddWithValue("@estado", nuevo.EstadoEnvio);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            MessageBox.Show("Envío guardado con éxito.");
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
