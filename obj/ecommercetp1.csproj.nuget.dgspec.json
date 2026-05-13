@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (2)\\TPcuatri\\ecommercetp1.csproj": {}
+    "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (3)\\ecommercetp1-mysql\\ecommercetp1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (2)\\TPcuatri\\ecommercetp1.csproj": {
+    "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (3)\\ecommercetp1-mysql\\ecommercetp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (2)\\TPcuatri\\ecommercetp1.csproj",
+        "projectUniqueName": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (3)\\ecommercetp1-mysql\\ecommercetp1.csproj",
         "projectName": "ecommercetp1",
-        "projectPath": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (2)\\TPcuatri\\ecommercetp1.csproj",
+        "projectPath": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (3)\\ecommercetp1-mysql\\ecommercetp1.csproj",
         "packagesPath": "C:\\Users\\PcGamer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (2)\\TPcuatri\\obj\\",
+        "outputPath": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (3)\\ecommercetp1-mysql\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PcGamer\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -76,7 +76,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300-preview.0.26177.108/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

@@ -1,14 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (2)\\TPcuatri\\",
+  "WorkspaceRootPath": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (3)\\ecommercetp1-mysql\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2F617984-9F38-05FF-7BBB-75AD98BAD246}|ecommercetp1.csproj|c:\\users\\pcgamer\\documents\\nueva carpeta (2)\\tpcuatri\\usuariosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2F617984-9F38-05FF-7BBB-75AD98BAD246}|ecommercetp1.csproj|solutionrelative:usuariosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{2F617984-9F38-05FF-7BBB-75AD98BAD246}|ecommercetp1.csproj|c:\\users\\pcgamer\\documents\\nueva carpeta (3)\\ecommercetp1-mysql\\usuariosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2F617984-9F38-05FF-7BBB-75AD98BAD246}|ecommercetp1.csproj|solutionrelative:usuariosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2F617984-9F38-05FF-7BBB-75AD98BAD246}|ecommercetp1.csproj|c:\\users\\pcgamer\\documents\\nueva carpeta (2)\\tpcuatri\\usuariosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2F617984-9F38-05FF-7BBB-75AD98BAD246}|ecommercetp1.csproj|solutionrelative:usuariosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2F617984-9F38-05FF-7BBB-75AD98BAD246}|ecommercetp1.csproj|c:\\users\\pcgamer\\documents\\nueva carpeta (3)\\ecommercetp1-mysql\\usuariosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{2F617984-9F38-05FF-7BBB-75AD98BAD246}|ecommercetp1.csproj|solutionrelative:usuariosform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,27 +27,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UsuariosForm.cs",
-              "DocumentMoniker": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (2)\\TPcuatri\\UsuariosForm.cs",
+              "Title": "UsuariosForm.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (3)\\ecommercetp1-mysql\\UsuariosForm.cs",
               "RelativeDocumentMoniker": "UsuariosForm.cs",
-              "ToolTip": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (2)\\TPcuatri\\UsuariosForm.cs",
-              "RelativeToolTip": "UsuariosForm.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAewIIAAAAMAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (3)\\ecommercetp1-mysql\\UsuariosForm.cs [Dise\u00F1o]",
+              "RelativeToolTip": "UsuariosForm.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-11T23:41:34.771Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-13T12:46:00.939Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UsuariosForm.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (2)\\TPcuatri\\UsuariosForm.cs",
+              "Title": "UsuariosForm.cs",
+              "DocumentMoniker": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (3)\\ecommercetp1-mysql\\UsuariosForm.cs",
               "RelativeDocumentMoniker": "UsuariosForm.cs",
-              "ToolTip": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (2)\\TPcuatri\\UsuariosForm.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UsuariosForm.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\PcGamer\\Documents\\Nueva carpeta (3)\\ecommercetp1-mysql\\UsuariosForm.cs",
+              "RelativeToolTip": "UsuariosForm.cs",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAzwJAAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-11T23:39:54.096Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2026-05-11T23:41:34.771Z",
+              "EditorCaption": ""
             }
           ]
         }
