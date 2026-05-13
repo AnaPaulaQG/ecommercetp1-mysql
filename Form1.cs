@@ -64,5 +64,21 @@ namespace ecommercetp1
             form.MdiParent = this;
             form.Show();
         }
+
+        private void resumenMI_Click(object sender, EventArgs e)
+        {
+            foreach (Form hijo in this.MdiChildren)
+            {
+                if (hijo is FormResumen)
+                {
+                    hijo.Activate();
+                    return;
+                }
+            }
+
+            FormResumen form = new FormResumen();
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }

@@ -45,7 +45,7 @@ namespace ecommercetp1
             // tiendasMI
             // 
             tiendasMI.Name = "tiendasMI";
-            tiendasMI.Size = new Size(59, 20);
+            tiendasMI.Size = new Size(60, 20);
             tiendasMI.Text = "Tiendas";
             tiendasMI.Click += tiendasMI_Click;
             // 
@@ -74,6 +74,7 @@ namespace ecommercetp1
             resumenMI.Name = "resumenMI";
             resumenMI.Size = new Size(68, 20);
             resumenMI.Text = "Resumen";
+            resumenMI.Click += resumenMI_Click;
             // 
             // Form1
             // 
