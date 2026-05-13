@@ -107,13 +107,13 @@ namespace ecommercetp1
             dgvTiendas.DataSource = resultado;
 
             // ✅ NUEVO: Consulta en MySQL
-            string query = "SELECT * FROM tiendas WHERE Nombre LIKE @filtro";
+            string query = "SELECT * FROM tiendas WHERE LOWER(Nombre) LIKE @filtro";
             using (var conn = ConexionDB.ObtenerConexion())
             {
                 conn.Open();
                 using (var cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@filtro", "%" + txtNombreTienda.Text + "%");
+                    cmd.Parameters.AddWithValue("@filtro", "%" + txtNombreTienda.Text.ToLower() + "%");
                     var adapter = new MySqlDataAdapter(cmd);
                     var tabla = new DataTable();
                     adapter.Fill(tabla);
