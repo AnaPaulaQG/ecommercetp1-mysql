@@ -15,17 +15,34 @@ namespace ecommercetp1
         {
             InitializeComponent();
 
-            // 1. Cargamos los datos del archivo JSON apenas arranca el programa
-            RepositorioCentral.CargarDatos();
+            // botón Modificar
+            Button btn_Modificar = new Button();
+            btn_Modificar.Text = "Modificar";
+            btn_Modificar.Location = new Point(672, 170);
+            btn_Modificar.Size = new Size(75, 23);
+            btn_Modificar.Click += btn_Modificar_Click;
+            this.Controls.Add(btn_Modificar);
 
-            // 2. Configuramos el ComboBox de Estado
             cmbEstado.Items.Clear();
             cmbEstado.Items.Add("Activo");
             cmbEstado.Items.Add("Inactivo");
             cmbEstado.SelectedIndex = 0;
 
-            // 3. Vinculamos la lista al Grid
-            dgvTiendas.DataSource = RepositorioCentral.TodasLasTiendas;
+            // ✅ Cargar desde MySQL en vez de JSON
+            CargarTiendasDesdeDB();
+        }
+
+        private void CargarTiendasDesdeDB()
+        {
+            string query = "SELECT * FROM tiendas";
+            using (var conn = ConexionDB.ObtenerConexion())
+            {
+                conn.Open();
+                var adapter = new MySqlDataAdapter(query, conn);
+                var tabla = new DataTable();
+                adapter.Fill(tabla);
+                dgvTiendas.DataSource = tabla;
+            }
         }
 
         private void btn_Agregar_Click(object sender, EventArgs e)
@@ -124,15 +141,52 @@ namespace ecommercetp1
 
         private void dgvTiendas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvTiendas.CurrentRow != null && dgvTiendas.CurrentRow.DataBoundItem != null)
+            if (dgvTiendas.CurrentRow != null && e.RowIndex >= 0)
             {
-                Tienda t = (Tienda)dgvTiendas.CurrentRow.DataBoundItem;
-                txtIdTienda.Text = t.IdTienda.ToString();
-                cmbUsuario.Text = t.IdUsuarioAdm.ToString();
-                txtNombreTienda.Text = t.Nombre ?? "";
-                txtUrl.Text = t.Url ?? "";
-                cmbEstado.Text = t.Estado ? "Activo" : "Inactivo";
+                var estadoValor = dgvTiendas.Rows[e.RowIndex].Cells["Estado"].Value;
+                
+
+                txtIdTienda.Text = dgvTiendas.Rows[e.RowIndex].Cells["IdTienda"].Value.ToString();
+                cmbUsuario.Text = dgvTiendas.Rows[e.RowIndex].Cells["IdUsuarioAdm"].Value.ToString();
+                txtNombreTienda.Text = dgvTiendas.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+                txtUrl.Text = dgvTiendas.Rows[e.RowIndex].Cells["Url"].Value.ToString();
+                cmbEstado.Text = (estadoValor.ToString() == "1" || estadoValor.ToString().ToLower() == "true") ? "Activo" : "Inactivo";
             }
         }
+
+        private void btn_Modificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string estadoActual = cmbEstado.Text; // ← va primero
+
+                string query = @"UPDATE tiendas SET IdUsuarioAdm = @idAdm, Nombre = @nombre, 
+                 Url = @url, Estado = @estado 
+                 WHERE IdTienda = @id";
+
+                using (var conn = ConexionDB.ObtenerConexion())
+                {
+                    conn.Open();
+                    using (var cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", int.Parse(txtIdTienda.Text));
+                        cmd.Parameters.AddWithValue("@idAdm", int.Parse(cmbUsuario.Text));
+                        cmd.Parameters.AddWithValue("@nombre", txtNombreTienda.Text);
+                        cmd.Parameters.AddWithValue("@url", txtUrl.Text);
+                        cmd.Parameters.AddWithValue("@estado", cmbEstado.Text == "Activo" ? 1 : 0);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Tienda modificada con éxito.");
+                CargarTiendasDesdeDB();
+                cmbEstado.Text = estadoActual; // ← restaura el estado
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
     }
 }
