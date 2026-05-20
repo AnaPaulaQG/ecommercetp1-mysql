@@ -17,7 +17,7 @@ namespace ecommercetp1
     public partial class UsuariosForm : Form
     {
         int idSeleccionado = -1;
-        string conexion = "server=localhost;database=usuarios;user=root;password=;";
+        string conexion = "server=localhost;database=ecommercetp1;user=root;password=;";
 
         public UsuariosForm()
         {
@@ -43,7 +43,7 @@ namespace ecommercetp1
                 idSeleccionado = Convert.ToInt32(fila.Cells["ID"].Value);
                 txtNombre.Text = dgvUsuarios.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
                 txtEmail.Text = dgvUsuarios.Rows[e.RowIndex].Cells["Email"].Value.ToString();
-                txtContraseña.Text = dgvUsuarios.Rows[e.RowIndex].Cells["Contraseña"].Value.ToString();
+                txtContraseña.Text = dgvUsuarios.Rows[e.RowIndex].Cells["contrasena"].Value.ToString();
                 cbTiendas.Text = dgvUsuarios.Rows[e.RowIndex].Cells["Tienda"].Value.ToString();
             }
         }
@@ -61,7 +61,7 @@ namespace ecommercetp1
                 {
                     conn.Open();
 
-                    string query = @"UPDATE usuarios_admin SET Nombre = @nom, Tienda = @tie, Contraseña = @pass, Email = @mail WHERE ID = @id";
+                    string query = @"UPDATE usuarios SET Nombre = @nom, Tienda = @tie, contrasena = @pass, Email = @mail WHERE ID = @id";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
@@ -94,7 +94,7 @@ namespace ecommercetp1
                 {
                     conn.Open();
 
-                    string query = "SELECT * FROM `usuarios_admin`";
+                    string query = "SELECT * FROM `usuarios`";
 
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
 
@@ -133,13 +133,13 @@ namespace ecommercetp1
                 {
                     conn.Open();
 
-                    string query = "INSERT INTO usuarios_admin (Nombre, Tienda, Contraseña, Email) VALUES (@Nombre, @Tienda, @Contraseña, @Email)";
+                    string query = "INSERT INTO usuarios (Nombre, Tienda, contrasena, Email) VALUES (@Nombre, @Tienda, @contrasena, @Email)";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@Nombre", txtNombre.Text);
                         cmd.Parameters.AddWithValue("@Tienda", cbTiendas.Text);
-                        cmd.Parameters.AddWithValue("@Contraseña", txtContraseña.Text);
+                        cmd.Parameters.AddWithValue("@contrasena", txtContraseña.Text);
                         cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
 
                         cmd.ExecuteNonQuery();
@@ -152,7 +152,7 @@ namespace ecommercetp1
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error: " + ex.Message);
+                    MessageBox.Show("Error: " + ex.Message);
                 }
             }
         }
@@ -180,7 +180,7 @@ namespace ecommercetp1
                 try
                 {
                     conn.Open();
-                    string query = "DELETE FROM usuarios_admin WHERE ID = @id";
+                    string query = "DELETE FROM usuarios WHERE ID = @id";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
@@ -226,15 +226,15 @@ namespace ecommercetp1
             //using (SqlConnection con = new SqlConnection(conexion))
             {
                 //string query = @"INSERT INTO Usuarios
-                        //(Nombre, Email, Contraseña, Tienda)
+                        //(Nombre, Email, contrasena, Tienda)
                         //VALUES
-                        //(@nombre, @email, @contraseña, @tienda)";
+                        //(@nombre, @email, @contrasena, @tienda)";
 
                 //using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     //cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
                     //cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                    //cmd.Parameters.AddWithValue("@contraseña", txtContraseña.Text);
+                    //cmd.Parameters.AddWithValue("@contrasena", txtContraseña.Text);
                     //cmd.Parameters.AddWithValue("@tienda", cbTiendas.SelectedItem.ToString());
 
                     //conn.Open();
