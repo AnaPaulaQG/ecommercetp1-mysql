@@ -61,6 +61,7 @@ namespace ecommercetp1
             ventasMI.Name = "ventasMI";
             ventasMI.Size = new Size(53, 20);
             ventasMI.Text = "Ventas";
+            ventasMI.Click += ventasMI_Click;
             // 
             // logisticaMI
             // 
