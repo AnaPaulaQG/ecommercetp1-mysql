@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace ecommercetp1
 {
-    public partial class FormResumen : Form
+    public partial class Form4 : Form
     {
-        public FormResumen()
+        public Form4()
         {
             InitializeComponent();
         }
