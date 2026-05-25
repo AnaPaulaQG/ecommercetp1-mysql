@@ -118,19 +118,35 @@ namespace ecommercetp1
 
         private void btn_Modificar_Click(object sender, EventArgs e)
         {
+            int idEnvio;
+            int idVenta;
+
+            // Validamos que no estén vacíos y sean números enteros
+            if (!int.TryParse(textBox1.Text, out idEnvio))
+            {
+                MessageBox.Show("Por favor, ingresá el ID Envío numérico que querés modificar.");
+                return;
+            }
+
+            if (!int.TryParse(textBox5.Text, out idVenta))
+            {
+                MessageBox.Show("ID Venta debe ser un número válido.");
+                return;
+            }
+
             try
             {
                 string query = @"UPDATE envios SET ID_Venta = @idVenta, Direccion = @direccion, 
-                         Empresa = @empresa, EstadoEnvio = @estado 
-                         WHERE ID_Envio = @idEnvio";
+                 Empresa = @empresa, EstadoEnvio = @estado 
+                 WHERE ID_Envio = @idEnvio";
 
                 using (var conn = ConexionDB.ObtenerConexion())
                 {
                     conn.Open();
                     using (var cmd = new MySqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@idEnvio", int.Parse(textBox1.Text));
-                        cmd.Parameters.AddWithValue("@idVenta", int.Parse(textBox5.Text));
+                        cmd.Parameters.AddWithValue("@idEnvio", idEnvio);
+                        cmd.Parameters.AddWithValue("@idVenta", idVenta);
                         cmd.Parameters.AddWithValue("@direccion", textBox4.Text);
                         cmd.Parameters.AddWithValue("@empresa", textBox3.Text);
                         cmd.Parameters.AddWithValue("@estado", textBox2.Text);
