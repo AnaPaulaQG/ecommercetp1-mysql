@@ -17,6 +17,7 @@ namespace ecommercetp1
         public FormLogistica()
         {
             InitializeComponent();
+            CargarEnviosDesdeDB();
         }
 
         private void FormLogistica_Click(object sender, EventArgs e)
@@ -91,6 +92,18 @@ namespace ecommercetp1
             textBox2.Clear();
         }
 
+        private void CargarEnviosDesdeDB()
+        {
+            string query = "SELECT * FROM envios";
+            using (var conn = ConexionDB.ObtenerConexion())
+            {
+                conn.Open();
+                var adapter = new MySqlDataAdapter(query, conn);
+                var tabla = new DataTable();
+                adapter.Fill(tabla);
+                dataGridView1.DataSource = tabla;
+            }
+        }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dataGridView1.CurrentRow != null)
@@ -100,6 +113,37 @@ namespace ecommercetp1
 
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = envios;
+            }
+        }
+
+        private void btn_Modificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string query = @"UPDATE envios SET ID_Venta = @idVenta, Direccion = @direccion, 
+                         Empresa = @empresa, EstadoEnvio = @estado 
+                         WHERE ID_Envio = @idEnvio";
+
+                using (var conn = ConexionDB.ObtenerConexion())
+                {
+                    conn.Open();
+                    using (var cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@idEnvio", int.Parse(textBox1.Text));
+                        cmd.Parameters.AddWithValue("@idVenta", int.Parse(textBox5.Text));
+                        cmd.Parameters.AddWithValue("@direccion", textBox4.Text);
+                        cmd.Parameters.AddWithValue("@empresa", textBox3.Text);
+                        cmd.Parameters.AddWithValue("@estado", textBox2.Text);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Envío modificado con éxito.");
+                CargarEnviosDesdeDB();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
     }
