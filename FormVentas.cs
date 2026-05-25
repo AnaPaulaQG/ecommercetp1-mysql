@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace ecommercetp1
 {
-    public partial class Form2 : Form
+    public partial class FormVentas : Form
     {
-        public Form2()
+        public FormVentas()
         {
             InitializeComponent();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btn_agregar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
