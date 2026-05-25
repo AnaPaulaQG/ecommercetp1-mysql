@@ -80,5 +80,21 @@ namespace ecommercetp1
             form.MdiParent = this;
             form.Show();
         }
+
+        private void ventasMI_Click(object sender, EventArgs e)
+        {
+            foreach (Form hijo in this.MdiChildren)
+            {
+                if (hijo is FormVentas)
+                {
+                    hijo.Activate();
+                    return;
+                }
+            }
+
+            FormVentas form = new FormVentas();
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }

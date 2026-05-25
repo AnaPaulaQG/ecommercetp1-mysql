@@ -48,6 +48,7 @@
             btn_agregar = new Button();
             btn_eliminar = new Button();
             btn_modificar = new Button();
+            btn_buscar = new Button();
             ((System.ComponentModel.ISupportInitialize)DGV_Ventas).BeginInit();
             SuspendLayout();
             // 
@@ -184,7 +185,7 @@
             DGV_Ventas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DGV_Ventas.Location = new Point(225, 9);
             DGV_Ventas.Name = "DGV_Ventas";
-            DGV_Ventas.Size = new Size(468, 230);
+            DGV_Ventas.Size = new Size(850, 230);
             DGV_Ventas.TabIndex = 16;
             DGV_Ventas.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -206,6 +207,7 @@
             btn_eliminar.TabIndex = 18;
             btn_eliminar.Text = "Eliminar";
             btn_eliminar.UseVisualStyleBackColor = true;
+            btn_eliminar.Click += btn_eliminar_Click;
             // 
             // btn_modificar
             // 
@@ -215,12 +217,24 @@
             btn_modificar.TabIndex = 19;
             btn_modificar.Text = "Modificar";
             btn_modificar.UseVisualStyleBackColor = true;
+            btn_modificar.Click += btn_modificar_Click;
             // 
-            // Form2
+            // btn_buscar
+            // 
+            btn_buscar.Location = new Point(256, 266);
+            btn_buscar.Name = "btn_buscar";
+            btn_buscar.Size = new Size(75, 23);
+            btn_buscar.TabIndex = 20;
+            btn_buscar.Text = "Buscar";
+            btn_buscar.UseVisualStyleBackColor = true;
+            btn_buscar.Click += btn_buscar_Click;
+            // 
+            // FormVentas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1100, 450);
+            Controls.Add(btn_buscar);
             Controls.Add(btn_modificar);
             Controls.Add(btn_eliminar);
             Controls.Add(btn_agregar);
@@ -241,7 +255,7 @@
             Controls.Add(lbl_Cliente);
             Controls.Add(lbl_IDTienda);
             Controls.Add(lbl_IDVenta);
-            Name = "Form2";
+            Name = "FormVentas";
             Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)DGV_Ventas).EndInit();
             ResumeLayout(false);
@@ -270,5 +284,6 @@
         private Button btn_agregar;
         private Button btn_eliminar;
         private Button btn_modificar;
+        private Button btn_buscar;
     }
 }
