@@ -96,5 +96,14 @@ namespace ecommercetp1
             form.MdiParent = this;
             form.Show();
         }
+
+        private void comercioMI_Click(object sender, EventArgs e)
+        {
+            // 🚀 Creamos la instancia de la nueva ventana de Comercios
+            FormComercios ventanaComercios = new FormComercios();
+
+            // Muestra la ventana de Comercios en pantalla
+            ventanaComercios.Show();
+        }
     }
 }

@@ -41,6 +41,7 @@ namespace ecommercetp1
             comercioMI.Name = "comercioMI";
             comercioMI.Size = new Size(76, 20);
             comercioMI.Text = "Comercios";
+            comercioMI.Click += comercioMI_Click;
             // 
             // tiendasMI
             // 

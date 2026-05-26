@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2026 a las 00:24:48
+-- Tiempo de generación: 26-05-2026 a las 21:35:02
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `ecommercetp1`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comercios`
+--
+
+CREATE TABLE `comercios` (
+  `Id_Comercios` int(11) NOT NULL,
+  `Nombre_Comercio` varchar(100) NOT NULL,
+  `Rubro` varchar(50) DEFAULT NULL,
+  `Email` varchar(100) DEFAULT NULL,
+  `Telefono` varchar(20) DEFAULT NULL,
+  `Plan` varchar(50) DEFAULT NULL,
+  `Fecha` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `comercios`
+--
+
+INSERT INTO `comercios` (`Id_Comercios`, `Nombre_Comercio`, `Rubro`, `Email`, `Telefono`, `Plan`, `Fecha`) VALUES
+(1, 'LaRotiseriaComercio', 'Comida', 'larotiseria@ejemplo.com', '47889966', 'Gold', '2026-06-26'),
+(2, 'Mc', 'Comida', 'mcdonalds@ejemplo.com', '55556666', 'Pro', '2026-05-26');
 
 -- --------------------------------------------------------
 
@@ -88,9 +112,40 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`Id`, `Nombre`, `Email`, `Contrasena`, `Tienda`) VALUES
 (2, 'Maria', 'maria@ejemplo.com', '1234', 'martatienda');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ventas`
+--
+
+CREATE TABLE `ventas` (
+  `ID_Venta` int(11) NOT NULL,
+  `ID_Tienda` int(11) DEFAULT NULL,
+  `Cliente` varchar(20) DEFAULT NULL,
+  `Producto` varchar(20) DEFAULT NULL,
+  `Monto` decimal(10,2) DEFAULT NULL,
+  `Medio_de_Pago` varchar(20) DEFAULT NULL,
+  `Estado_de_Pago` varchar(20) DEFAULT NULL,
+  `Fecha` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `ventas`
+--
+
+INSERT INTO `ventas` (`ID_Venta`, `ID_Tienda`, `Cliente`, `Producto`, `Monto`, `Medio_de_Pago`, `Estado_de_Pago`, `Fecha`) VALUES
+(2, 2, 'Maria', 'Play', 500.00, 'Mercado Pago', 'En proceso', '2026-05-25'),
+(3, 33, 'Pilar', 'Compu', 60000.00, 'Mercado Pago', 'Aceptado', '2026-05-25');
+
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `comercios`
+--
+ALTER TABLE `comercios`
+  ADD PRIMARY KEY (`Id_Comercios`);
 
 --
 -- Indices de la tabla `envios`
@@ -111,14 +166,32 @@ ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`Id`);
 
 --
+-- Indices de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  ADD PRIMARY KEY (`ID_Venta`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `comercios`
+--
+ALTER TABLE `comercios`
+  MODIFY `Id_Comercios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  MODIFY `ID_Venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
