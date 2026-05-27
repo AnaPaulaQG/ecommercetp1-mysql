@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-05-2026 a las 21:35:02
+-- Tiempo de generación: 27-05-2026 a las 15:43:25
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -64,7 +64,8 @@ CREATE TABLE `envios` (
 --
 
 INSERT INTO `envios` (`ID_Envio`, `ID_Venta`, `Direccion`, `Empresa`, `EstadoEnvio`) VALUES
-(2, 22, 'callefalsa123', 'Rama SRL', 'Activo');
+(2, 22, 'callefalsa123', 'Rama SRL', 'Activo'),
+(3, 33, 'callefalsa1', 'Arbol SRL', 'Activo');
 
 -- --------------------------------------------------------
 
