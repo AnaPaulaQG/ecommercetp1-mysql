@@ -20,12 +20,6 @@ namespace ecommercetp1
             CargarEnviosDesdeDB();
         }
 
-        private void FormLogistica_Click(object sender, EventArgs e)
-        {
-            FormLogistica f = new FormLogistica();
-            f.MdiParent = this;
-            f.Show();
-        }
 
         private void logisticaToolStripMenuItem_Click(object sender, EventArgs e)
         {
