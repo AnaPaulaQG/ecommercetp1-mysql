@@ -43,6 +43,7 @@
             btnEliminar = new Button();
             btnLimpiar = new Button();
             btn_Modificar = new Button();
+            btn_Buscar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -185,11 +186,22 @@
             btn_Modificar.UseVisualStyleBackColor = true;
             btn_Modificar.Click += btn_Modificar_Click;
             // 
+            // btn_Buscar
+            // 
+            btn_Buscar.Location = new Point(330, 225);
+            btn_Buscar.Name = "btn_Buscar";
+            btn_Buscar.Size = new Size(75, 23);
+            btn_Buscar.TabIndex = 15;
+            btn_Buscar.Text = "Buscar";
+            btn_Buscar.UseVisualStyleBackColor = true;
+            btn_Buscar.Click += btn_Buscar_Click;
+            // 
             // FormLogistica
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 409);
+            Controls.Add(btn_Buscar);
             Controls.Add(btn_Modificar);
             Controls.Add(btnLimpiar);
             Controls.Add(btnEliminar);
@@ -231,5 +243,6 @@
         private Button btnEliminar;
         private Button btnLimpiar;
         private Button btn_Modificar;
+        private Button btn_Buscar;
     }
 }

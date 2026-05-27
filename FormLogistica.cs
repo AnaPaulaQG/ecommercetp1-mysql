@@ -162,5 +162,78 @@ namespace ecommercetp1
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        private void btn_Buscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string query;
+                // 🔍 Verificamos si el usuario escribió algo en el campo ID_Envio (textBox1)
+                bool buscaPorId = !string.IsNullOrEmpty(textBox1.Text);
+
+                // ==========================================
+                // 1. FILTRADO EN LA LISTA LOCAL (envios)
+                // ==========================================
+                if (buscaPorId)
+                {
+                    if (int.TryParse(textBox1.Text, out int idBuscado))
+                    {
+                        var resultadoLocal = envios.Where(env => env.ID_Envio == idBuscado).ToList();
+                        dataGridView1.DataSource = null;
+                        dataGridView1.DataSource = resultadoLocal;
+                    }
+                }
+                else
+                {
+                    string filtroEmpresa = textBox3.Text.ToLower();
+                    var resultadoLocal = envios
+                                         .Where(env => (env.Empresa ?? "").ToLower().Contains(filtroEmpresa))
+                                         .ToList();
+                    dataGridView1.DataSource = null;
+                    dataGridView1.DataSource = resultadoLocal;
+                }
+
+                // ==========================================
+                // 2. CONSULTA EN MYSQL (phpMyAdmin)
+                // ==========================================
+                if (buscaPorId)
+                {
+                    // Busca coincidencia exacta por ID de Envío
+                    query = "SELECT * FROM envios WHERE ID_Envio = @id";
+                }
+                else
+                {
+                    // Busca coincidencias parciales por el nombre de la Empresa transportista
+                    query = "SELECT * FROM envios WHERE LOWER(Empresa) LIKE @filtro";
+                }
+
+                using (var conn = ConexionDB.ObtenerConexion())
+                {
+                    conn.Open();
+                    using (var cmd = new MySqlCommand(query, conn))
+                    {
+                        if (buscaPorId)
+                        {
+                            cmd.Parameters.AddWithValue("@id", int.Parse(textBox1.Text));
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@filtro", "%" + textBox3.Text.ToLower() + "%");
+                        }
+
+                        var adapter = new MySqlDataAdapter(cmd);
+                        var tabla = new DataTable();
+                        adapter.Fill(tabla);
+
+                        // Muestra el resultado final extraído de la base de datos en tu grilla
+                        dataGridView1.DataSource = tabla;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al buscar el envío: " + ex.Message);
+            }
+        }
     }
 }
