@@ -39,6 +39,7 @@ namespace ecommercetp1
         }
 
         // ➕ 2. AGREGAR
+        // ➕ 2. AGREGAR
         private void btn_Agregar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txt_NC.Text))
@@ -48,7 +49,7 @@ namespace ecommercetp1
             }
 
             string query = @"INSERT INTO comercios (Nombre_Comercio, Rubro, Email, Telefono, Plan, Fecha) 
-                            VALUES (@nombre, @rubro, @email, @telefono, @plan, @fecha)";
+                    VALUES (@nombre, @rubro, @email, @telefono, @plan, @fecha)";
 
             try
             {
@@ -70,8 +71,11 @@ namespace ecommercetp1
                         }
                         else
                         {
-                            cmd.Parameters.AddWithValue("@fecha", DateTime.Now.ToString("yyyy-MM-dd")); // Si está vacío o mal escrito, clava la fecha de hoy
+                            cmd.Parameters.AddWithValue("@fecha", DateTime.Now.ToString("yyyy-MM-dd"));
                         }
+
+                        // 🔥 LA LÍNEA QUE TE FALTABA AGREGAR ES ESTA:
+                        cmd.ExecuteNonQuery();
                     }
                 }
                 MessageBox.Show("¡Comercio registrado con éxito!");
