@@ -65,7 +65,7 @@ namespace ecommercetp1
                         cmd.Parameters.AddWithValue("@plan", txt_Plan.Text);
 
                         // Si dejas la fecha vacía, le manda la de hoy por defecto
-                        if (DateTime.TryParse(txt_Fecha.Text, out DateTime fechaParseada))
+                       if (DateTime.TryParse(txt_Fecha.Text, out DateTime fechaParseada))
                         {
                             cmd.Parameters.AddWithValue("@fecha", fechaParseada.ToString("yyyy-MM-dd"));
                         }

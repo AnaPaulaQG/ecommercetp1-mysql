@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-05-2026 a las 15:43:25
+-- Tiempo de generación: 29-05-2026 a las 14:11:40
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -111,7 +111,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`Id`, `Nombre`, `Email`, `Contrasena`, `Tienda`) VALUES
-(2, 'Maria', 'maria@ejemplo.com', '1234', 'martatienda');
+(2, 'Maria', 'maria@ejemplo.com', '1234', 'martatienda'),
+(3, 'Marta', 'marta@ejemplo.com', '1234', 'MartaTienda');
 
 -- --------------------------------------------------------
 
@@ -136,7 +137,9 @@ CREATE TABLE `ventas` (
 
 INSERT INTO `ventas` (`ID_Venta`, `ID_Tienda`, `Cliente`, `Producto`, `Monto`, `Medio_de_Pago`, `Estado_de_Pago`, `Fecha`) VALUES
 (2, 2, 'Maria', 'Play', 500.00, 'Mercado Pago', 'En proceso', '2026-05-25'),
-(3, 33, 'Pilar', 'Compu', 60000.00, 'Mercado Pago', 'Aceptado', '2026-05-25');
+(3, 33, 'Pilar', 'Compu', 60000.00, 'Mercado Pago', 'Aceptado', '2026-05-25'),
+(4, 444, 'Maria', 'Gabinete', 10000.00, 'Banco Itau', 'Aceptado', '2026-05-29'),
+(5, 555, 'Julian', 'Teclado', 150000.00, 'BancoItau', 'Aceptado', '2026-05-29');
 
 --
 -- Índices para tablas volcadas
@@ -186,13 +189,13 @@ ALTER TABLE `comercios`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `ID_Venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID_Venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
