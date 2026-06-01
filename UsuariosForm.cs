@@ -9,21 +9,17 @@ using System.Text;
 using System.Windows.Forms;
 using static System.Net.WebRequestMethods;
 
-
 namespace ecommercetp1
-
-
 {
     public partial class UsuariosForm : Form
     {
         int idSeleccionado = -1;
-        string conexion = "server=localhost;database=ecommercetp1;user=root;password=;";
 
         public UsuariosForm()
         {
             InitializeComponent();
-
         }
+
         private void LimpiarCampos()
         {
             txtNombre.Text = "";
@@ -32,7 +28,6 @@ namespace ecommercetp1
             cbTiendas.SelectedIndex = -1;
             idSeleccionado = -1;
         }
-
 
         private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -55,7 +50,7 @@ namespace ecommercetp1
                 MessageBox.Show("Por favor, selecciona un registro de la tabla primero.");
                 return;
             }
-            using (MySqlConnection conn = new MySqlConnection(conexion))
+            using (MySqlConnection conn = ConexionDB.ObtenerConexion())
             {
                 try
                 {
@@ -88,7 +83,7 @@ namespace ecommercetp1
 
         public void MostrarDatos()
         {
-            using (MySqlConnection conn = new MySqlConnection(conexion))
+            using (MySqlConnection conn = ConexionDB.ObtenerConexion())
             {
                 try
                 {
@@ -113,22 +108,22 @@ namespace ecommercetp1
 
         private void UsuariosForm_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            using (MySqlConnection conn = new MySqlConnection(conexion))
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
+            string.IsNullOrWhiteSpace(cbTiendas.Text) ||
+            string.IsNullOrWhiteSpace(txtContraseña.Text) ||
+            string.IsNullOrWhiteSpace(txtEmail.Text))
             {
-                if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                string.IsNullOrWhiteSpace(cbTiendas.Text) ||
-                string.IsNullOrWhiteSpace(txtContraseña.Text) ||
-                string.IsNullOrWhiteSpace(txtEmail.Text))
+                MessageBox.Show("Todos los campos son obligatorios");
+                return;
+            }
 
-                {
-                    MessageBox.Show("Todos los campos son obligatorios");
-                    return;
-                }
+            using (MySqlConnection conn = ConexionDB.ObtenerConexion())
+            {
                 try
                 {
                     conn.Open();
@@ -175,7 +170,7 @@ namespace ecommercetp1
                 return;
             }
 
-            using (MySqlConnection conn = new MySqlConnection(conexion))
+            using (MySqlConnection conn = ConexionDB.ObtenerConexion())
             {
                 try
                 {
@@ -217,32 +212,6 @@ namespace ecommercetp1
         private void label1_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void Conexion_Click(object sender, EventArgs e)
-        {
-            //string conexion = "Server=.\\SQLEXPRESS;Database=UsuariosDB;Trusted_Connection=True;TrustServerCertificate=True;";
-
-            //using (SqlConnection con = new SqlConnection(conexion))
-            {
-                //string query = @"INSERT INTO Usuarios
-                        //(Nombre, Email, contrasena, Tienda)
-                        //VALUES
-                        //(@nombre, @email, @contrasena, @tienda)";
-
-                //using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    //cmd.Parameters.AddWithValue("@nombre", txtNombre.Text);
-                    //cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                    //cmd.Parameters.AddWithValue("@contrasena", txtContraseña.Text);
-                    //cmd.Parameters.AddWithValue("@tienda", cbTiendas.SelectedItem.ToString());
-
-                    //conn.Open();
-                    //cmd.ExecuteNonQuery();
-                }
-            }
-
-            //MessageBox.Show("Usuario guardado correctamente");
         }
     }
 }
